@@ -65,7 +65,6 @@ export const AIAssistantChat: React.FC<AIAssistantChatProps> = ({ onLeadsFound, 
   };
 
   return (
-  return (
     <div className="flex flex-col h-full bg-transparent font-sans relative">
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 pb-24 scrollbar-hide">
