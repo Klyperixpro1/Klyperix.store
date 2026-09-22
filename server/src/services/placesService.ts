@@ -792,9 +792,11 @@ export function resolveLeadPhone(
   if (rawPhone) {
     const verified = parseAndVerifyPhoneNumber(rawPhone, countryCode);
     if (verified.formattedPhone && verified.formattedPhone.length >= 7) {
-      // Ensure whatsappNumber is always populated if valid phone
-      if (!verified.whatsappNumber) {
+      // ONLY set whatsappNumber if we are confident it's a mobile
+      if (!verified.whatsappNumber && verified.phoneType === 'mobile') {
         verified.whatsappNumber = verified.formattedPhone.replace(/\D/g, '');
+      } else if (verified.phoneType === 'landline') {
+        verified.whatsappNumber = undefined;
       }
       return verified;
     }

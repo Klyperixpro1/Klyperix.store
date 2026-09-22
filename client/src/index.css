@@ -51,19 +51,19 @@
 }
 
 .dark {
-  --kly-lavender-light: #3a2259;
-  --kly-purple-glow: #7a3bbb;
-  --kly-purple-primary: #a855f7;
-  --kly-purple-accent: #c084fc;
-  --kly-purple-deep: #e9d5ff;
-  --kly-dark-text: #fdfdfc;
-  --kly-white: #130722;
+  --kly-lavender-light: #222222;
+  --kly-purple-glow: #ffffff;
+  --kly-purple-primary: #ffffff;
+  --kly-purple-accent: #dddddd;
+  --kly-purple-deep: #000000;
+  --kly-dark-text: #ffffff;
+  --kly-white: #000000;
 
-  --bg-primary: #130722;
-  --bg-secondary: #1e0d36;
-  --text-primary: #fdfdfc;
-  --text-secondary: #e9d5ff;
-  --border-color: #3a2259;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-color: #222222;
 }
 
 .dark body {
@@ -109,6 +109,13 @@
 
 .klyperix-gradient-text {
   background: linear-gradient(135deg, #251142 0%, #5c2f8f 50%, #8400ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .klyperix-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #dddddd 50%, #aaaaaa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
