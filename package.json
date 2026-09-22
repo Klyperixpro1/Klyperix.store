@@ -1,0 +1,18 @@
+{
+  "name": "klyperix-production",
+  "version": "2.0.0",
+  "description": "Klyperix Production — Client Acquisition & Growth Engine (The Shield of Pride)",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:server && npm run build:client",
+    "start": "cd server && node dist/index.js",
+    "start:fresh": "npm run build && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

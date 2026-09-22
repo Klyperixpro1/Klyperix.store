@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+    background-color: #fdfdfc;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #fdfdfc;
+    color: #251142;
+    overflow-x: hidden;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  input, textarea, select {
+    background-color: #ffffff;
+    color: #251142;
+    border-color: #ecdcff;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: #8400ff !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(187, 126, 255, 0.25);
+  }
+  input::placeholder, textarea::placeholder {
+    color: #8d76ab;
+  }
+}
+
+/* Klyperix Theme Tokens (#ecdcff, #bf86ff, #bb7eff, #5c2f8f, #fdfdfc) */
+:root {
+  --kly-lavender-light: #ecdcff;
+  --kly-purple-glow: #bf86ff;
+  --kly-purple-primary: #8400ff;
+  --kly-purple-accent: #bb7eff;
+  --kly-purple-deep: #5c2f8f;
+  --kly-dark-text: #251142;
+  --kly-white: #fdfdfc;
+  
+  --bg-primary: #fdfdfc;
+  --bg-secondary: #faf7ff;
+  --text-primary: #251142;
+  --text-secondary: #5c2f8f;
+  --border-color: #ecdcff;
+}
+
+.dark {
+  --kly-lavender-light: #3a2259;
+  --kly-purple-glow: #7a3bbb;
+  --kly-purple-primary: #a855f7;
+  --kly-purple-accent: #c084fc;
+  --kly-purple-deep: #e9d5ff;
+  --kly-dark-text: #fdfdfc;
+  --kly-white: #130722;
+
+  --bg-primary: #130722;
+  --bg-secondary: #1e0d36;
+  --text-primary: #fdfdfc;
+  --text-secondary: #e9d5ff;
+  --border-color: #3a2259;
+}
+
+.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark input, .dark textarea, .dark select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Overrides for hardcoded arbitrary Tailwind colors in dark mode */
+.dark .bg-\[\#fdfdfc\], .dark .bg-white {
+  background-color: var(--bg-primary) !important;
+}
+.dark .bg-\[\#faf7ff\] {
+  background-color: var(--bg-secondary) !important;
+}
+.dark .text-\[\#251142\] {
+  color: var(--text-primary) !important;
+}
+.dark .text-\[\#5c2f8f\] {
+  color: var(--text-secondary) !important;
+}
+.dark .border-\[\#ecdcff\] {
+  border-color: var(--border-color) !important;
+}
+
+/* Klyperix Brand Palette */
+.klyperix-gradient {
+  background: linear-gradient(135deg, #5c2f8f 0%, #8400ff 50%, #bb7eff 100%);
+}
+
+.klyperix-hero-gradient {
+  background: linear-gradient(180deg, #fdfdfc 0%, #f7f1ff 35%, #ecdcff 75%, #dfc8ff 100%);
+}
+
+.klyperix-gradient-subtle {
+  background: linear-gradient(135deg, #faf6ff 0%, #ecdcff 100%);
+}
+
+.klyperix-gradient-text {
+  background: linear-gradient(135deg, #251142 0%, #5c2f8f 50%, #8400ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.klyperix-border {
+  border-color: #ecdcff;
+}
+
+.klyperix-card {
+  background: #ffffff;
+  border: 1px solid #ecdcff;
+  box-shadow: 0 4px 20px rgba(92, 47, 143, 0.05);
+}
+
+.klyperix-card:hover {
+  border-color: #bb7eff;
+  box-shadow: 0 8px 30px rgba(132, 0, 255, 0.1);
+}
+
+/* Custom Scrollbars - Light Studio */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfdfc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ecdcff;
+  border-radius: 9999px;
+  border: 1px solid rgba(187, 126, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bb7eff;
+}
+
+/* Selection */
+::selection {
+  background-color: #ecdcff;
+  color: #251142;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid #ecdcff;
+}

@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: outreach-ai
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3001}:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - DATABASE_PATH=/app/data/leads.db
+      - WWEBJS_AUTH_PATH=/app/data/.wwebjs_auth
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+      # Optional: Add your API keys here or via .env file
+      - GOOGLE_PLACES_API_KEY=${GOOGLE_PLACES_API_KEY:-}
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY:-}
+    volumes:
+      - ./data:/app/data

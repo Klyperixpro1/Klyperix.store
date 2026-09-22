@@ -1,0 +1,8 @@
+npm run dev se start hota hai
+
+
+yha se copy krke krlena:
+npm run dev
+
+
+open terminal jha pr download hai ye
