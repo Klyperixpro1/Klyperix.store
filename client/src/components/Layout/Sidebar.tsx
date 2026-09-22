@@ -68,6 +68,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         {/* Brand Header */}
         <div>
+          <div className="hidden lg:flex items-center justify-center p-6 border-b border-gray-100 dark:border-[#222]">
+            <img src="/logo.png" alt="Klyperix Logo" className="w-10 h-10 rounded-xl" />
+          </div>
           <div className="h-16 flex items-center justify-between px-4 border-b border-[#ecdcff] bg-[#faf7ff]/80">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 shrink-0 rounded-full border border-[#ecdcff] bg-[#ffffff] overflow-hidden flex items-center justify-center">

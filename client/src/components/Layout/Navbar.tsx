@@ -32,8 +32,6 @@ interface NavbarProps {
   onKillSwitchToggled?: (active: boolean) => void;
   onOpenMobileMenu?: () => void;
   onOpenCommandPalette?: () => void;
-  isDarkMode?: boolean;
-  onToggleDarkMode?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -48,8 +46,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onKillSwitchToggled,
   onOpenMobileMenu,
   onOpenCommandPalette,
-  isDarkMode = false,
-  onToggleDarkMode,
 }) => {
   const [togglingKillSwitch, setTogglingKillSwitch] = useState(false);
 
@@ -262,21 +258,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Right Controls: Fill API Keys, Pause All & Refresh */}
       <div className="flex items-center gap-2 shrink-0">
-        {/* Dark Mode Toggle */}
-        {onToggleDarkMode && (
-          <button
-            onClick={onToggleDarkMode}
-            className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#faf7ff] hover:bg-[#ecdcff] text-[#5c2f8f] text-xs flex items-center gap-1.5 border border-[#ecdcff] transition-colors shadow-xs font-bold shrink-0 whitespace-nowrap"
-            title="Toggle Dark Mode"
-          >
-            {isDarkMode ? (
-              <Sun className="h-4 w-4 shrink-0 text-amber-500" />
-            ) : (
-              <Moon className="h-4 w-4 shrink-0 text-[#8400ff]" />
-            )}
-          </button>
-        )}
-
         {/* Primary Fill API Keys Button */}
         <button
           onClick={() => onSelectTab('settings')}

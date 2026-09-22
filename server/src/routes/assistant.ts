@@ -11,7 +11,7 @@ async function parseIntentWithGroq(
   locationContext: string,
   groqKey: string
 ): Promise<{ intent: string; category: string; location: string; replyMessage: string } | null> {
-  const candidateModels = ['openai/gpt-oss-20b', 'groq/compound-mini', 'qwen/qwen3.8-27b'];
+  const candidateModels = ['llama3-8b-8192', 'mixtral-8x7b-32768', 'llama3-70b-8192'];
 
   const systemPrompt = `You are an AI assistant for a Lead Generation tool. 
 Determine if the user wants to search for business leads.
@@ -118,7 +118,7 @@ router.post('/chat', async (req: Request, res: Response) => {
       const chatRes = await axios.post(
         'https://api.groq.com/openai/v1/chat/completions',
         {
-          model: 'openai/gpt-oss-20b',
+          model: 'llama3-8b-8192',
           messages: [
             {
               role: 'system',

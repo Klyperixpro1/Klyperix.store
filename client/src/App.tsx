@@ -28,19 +28,11 @@ export const App: React.FC = () => {
   const [showOnboarding, setShowOnboarding] = useState<boolean>(
     () => !localStorage.getItem('klyperix_onboarding_done')
   );
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    () => localStorage.getItem('klyperix_theme') === 'dark' || false
-  );
 
+  // Force pure dark mode always
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('klyperix_theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('klyperix_theme', 'light');
-    }
-  }, [isDarkMode]);
+    document.documentElement.classList.add('dark');
+  }, []);
 
   // Universal Global Ctrl+K / Cmd+K Quick Search Shortcut
   useEffect(() => {
@@ -128,8 +120,6 @@ export const App: React.FC = () => {
           onKillSwitchToggled={(active) => setKillSwitchActive(active)}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
           onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
         />
 
         {/* Universal Quick Command Palette (Ctrl+K) */}
