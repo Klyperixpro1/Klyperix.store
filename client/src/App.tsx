@@ -29,10 +29,7 @@ export const App: React.FC = () => {
     () => !localStorage.getItem('klyperix_onboarding_done')
   );
 
-  // Force pure dark mode always
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+  // Light mode default, removing forced dark mode
 
   // Universal Global Ctrl+K / Cmd+K Quick Search Shortcut
   useEffect(() => {
