@@ -51,24 +51,17 @@
 }
 
 .dark {
-  --kly-lavender-light: #222222;
-  --kly-purple-glow: #ffffff;
-  --kly-purple-primary: #ffffff;
-  --kly-purple-accent: #dddddd;
-  --kly-purple-deep: #000000;
-  --kly-dark-text: #ffffff;
-  --kly-white: #000000;
-
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --border-color: #222222;
+  --bg-primary: #000000 !important;
+  --bg-secondary: #0a0a0a !important;
+  --text-primary: #ffffff !important;
+  --text-secondary: #f0f0f0 !important;
+  --border-color: #333333 !important;
 }
 
 .dark body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
 }
 
 .dark input, .dark textarea, .dark select {
@@ -78,19 +71,16 @@
 }
 
 /* Overrides for hardcoded arbitrary Tailwind colors in dark mode */
-.dark .bg-\[\#fdfdfc\], .dark .bg-white {
+.dark .bg-\[\#fdfdfc\], .dark .bg-white, .dark .bg-slate-50, .dark .bg-\[\#faf7ff\] {
   background-color: var(--bg-primary) !important;
 }
-.dark .bg-\[\#faf7ff\] {
+.dark .bg-\[\#111\] {
   background-color: var(--bg-secondary) !important;
 }
-.dark .text-\[\#251142\] {
+.dark .text-\[\#251142\], .dark .text-\[\#5c2f8f\], .dark .text-gray-800, .dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500 {
   color: var(--text-primary) !important;
 }
-.dark .text-\[\#5c2f8f\] {
-  color: var(--text-secondary) !important;
-}
-.dark .border-\[\#ecdcff\] {
+.dark .border-\[\#ecdcff\], .dark .border-gray-100, .dark .border-gray-200 {
   border-color: var(--border-color) !important;
 }
 
@@ -115,10 +105,12 @@
 }
 
 .dark .klyperix-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #dddddd 50%, #aaaaaa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
 }
 
 .klyperix-border {

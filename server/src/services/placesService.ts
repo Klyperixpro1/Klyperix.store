@@ -764,16 +764,9 @@ export function resolveSocialProfiles(
     }
   }
 
-  if (!instagramHandle) {
-    instagramHandle = cleanName ? `${cleanName}.official` : 'klyperix';
-    instagramUrl = `https://instagram.com/${instagramHandle}`;
-  }
-
   let linkedinUrl = '';
   if (osmLinkedin && osmLinkedin.includes('linkedin.com')) {
     linkedinUrl = osmLinkedin.trim();
-  } else {
-    linkedinUrl = `https://www.linkedin.com/company/${cleanName || 'company'}`;
   }
 
   return { instagramHandle, instagramUrl, linkedinUrl };
@@ -802,75 +795,11 @@ export function resolveLeadPhone(
     }
   }
 
-  // Create a deterministic valid mobile contact number based on hash of business name
-  const hash = Math.abs(
-    (businessName || '').split('').reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) % 10000000, 715) + (index * 97)
-  );
-  const pad7 = String(hash % 9000000 + 1000000); // 7 digits
-
-  const cc = (countryCode || 'US').toUpperCase();
-
-  if (cc === 'KW') {
-    // Kuwait mobile: 9, 6, 5 followed by 7 digits
-    const prefix = ['9', '6', '5'][hash % 3];
-    const national = `${prefix}${pad7}`;
-    return {
-      formattedPhone: `+965 ${national.slice(0, 4)} ${national.slice(4)}`,
-      whatsappNumber: `965${national}`,
-      phoneType: 'mobile',
-    };
-  }
-
-  if (cc === 'AE') {
-    // UAE mobile: 050, 052, 054, 055, 056 + 7 digits
-    const prefix = ['50', '52', '54', '55', '56'][hash % 5];
-    const national = `${prefix}${pad7}`;
-    return {
-      formattedPhone: `+971 ${prefix} ${pad7.slice(0, 3)} ${pad7.slice(3)}`,
-      whatsappNumber: `971${national}`,
-      phoneType: 'mobile',
-    };
-  }
-
-  if (cc === 'SA') {
-    // Saudi mobile: 05 + 8 digits
-    const pad8 = String(hash % 90000000 + 10000000);
-    return {
-      formattedPhone: `+966 5${pad8.slice(0, 3)} ${pad8.slice(3, 6)} ${pad8.slice(6)}`,
-      whatsappNumber: `9665${pad8}`,
-      phoneType: 'mobile',
-    };
-  }
-
-  if (cc === 'GB') {
-    // UK mobile: 07 + 9 digits
-    const pad9 = String(hash % 900000000 + 100000000);
-    return {
-      formattedPhone: `+44 7${pad9.slice(0, 3)} ${pad9.slice(3, 6)} ${pad9.slice(6)}`,
-      whatsappNumber: `447${pad9}`,
-      phoneType: 'mobile',
-    };
-  }
-
-  if (cc === 'IN') {
-    // India mobile: 98, 97, 99 + 8 digits
-    const prefix = ['98', '97', '99', '91'][hash % 4];
-    const pad8 = String(hash % 90000000 + 10000000);
-    return {
-      formattedPhone: `+91 ${prefix}${pad8.slice(0, 3)} ${pad8.slice(3)}`,
-      whatsappNumber: `91${prefix}${pad8}`,
-      phoneType: 'mobile',
-    };
-  }
-
-  // Default US/Canada: Area code + 7 digits
-  const areaCodes = ['305', '212', '310', '415', '512', '702', '404', '312'];
-  const area = areaCodes[hash % areaCodes.length];
-  const national = `${area}${pad7}`;
+  // If no raw phone is provided, do NOT generate a fake one. Return empty.
   return {
-    formattedPhone: `+1 (${area}) ${pad7.slice(0, 3)}-${pad7.slice(3)}`,
-    whatsappNumber: `1${national}`,
-    phoneType: 'mobile',
+    formattedPhone: '',
+    whatsappNumber: undefined,
+    phoneType: 'none',
   };
 }
 

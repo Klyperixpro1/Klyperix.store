@@ -81,10 +81,10 @@ export const AIAssistantChat: React.FC<AIAssistantChatProps> = ({ onLeadsFound, 
           if (idx === 0 && messages.length === 1) return null; // Hide welcome message if it's the only one, handled by splash above
           return (
             <div key={msg.id} className={`flex gap-4 max-w-[90%] ${msg.role === 'user' ? 'ml-auto flex-row-reverse' : ''} animate-fade-in-up`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${
-                msg.role === 'assistant' ? 'bg-gradient-to-br from-[#8400ff] to-[#bb7eff] text-white' : 'bg-gray-100 dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300'
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden ${
+                msg.role === 'assistant' ? 'bg-black' : 'bg-gray-100 dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300'
               }`}>
-                {msg.role === 'assistant' ? <Sparkles className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                {msg.role === 'assistant' ? <img src="/logo.png" alt="AI" className="w-full h-full object-cover" /> : <User className="w-4 h-4" />}
               </div>
               <div className={`p-4 rounded-3xl text-[15px] leading-relaxed shadow-sm ${
                 msg.role === 'assistant' 
@@ -99,8 +99,8 @@ export const AIAssistantChat: React.FC<AIAssistantChatProps> = ({ onLeadsFound, 
 
         {isTyping && (
           <div className="flex gap-4 max-w-[85%] animate-fade-in-up">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#8400ff] to-[#bb7eff] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden">
+              <img src="/logo.png" alt="AI" className="w-full h-full object-cover" />
             </div>
             <div className="p-4 bg-white dark:bg-[#111] border border-gray-100 dark:border-[#222] rounded-3xl rounded-tl-sm shadow-sm flex items-center gap-2">
               <div className="w-2 h-2 bg-[#8400ff] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
