@@ -11,6 +11,7 @@ export interface PlaceLeadResult {
   category: string;
   brand_track?: 'production' | 'gems_jewels';
   address: string;
+  description?: string;
   country_code?: string;
   high_ticket_score?: number;
   phone?: string;
